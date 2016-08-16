@@ -3,7 +3,7 @@
 
 ###This library is based on the ideas of ButterKnife but with use cases targeted for 90 percent of the cases. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
 
-###Use @BindView annotation to refer any view defined in XML (Note: Use public Keyword)
+##@BindView annotation to refer any view defined in XML (Note: Use public Keyword)
 ```java
 
  @BindView(R.id.txtView)
@@ -68,7 +68,7 @@ public void onDestroy() {
 
 ```
 
-## for other classes 
+## For other classes 
 ```java
 
 @Override
@@ -79,7 +79,7 @@ protected void finalize() throws Throwable {
 
 ```
 
-# Gradle
+#Gradle
 ```java
   compile 'com.mindorks:butterknifelite:0.0.1'
 ```
