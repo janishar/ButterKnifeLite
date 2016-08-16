@@ -1,10 +1,9 @@
 # ButterKnifeLite
 ##Android View initializer and onClick Listener boiler plate code remover
 
-####This library is based on the ideas of ButterKnife but with use cases targeted for 90 percent of the cases. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
+###This library is based on the ideas of ButterKnife but with use cases targeted for 90 percent of the cases. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
 
-##Use @BindView annotation to refer any view defined in XML (Note: Use public Keyword)
-##Now textView1 can be used to used to invoke methods of TextView 
+###Use @BindView annotation to refer any view defined in XML (Note: Use public Keyword), Now textView1 can be used to used to invoke methods of TextView 
 ```java
 
  @BindView(R.id.txtView)
