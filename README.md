@@ -22,7 +22,7 @@ public void onBtn1Click(){
 
 ```
 
-##For Any class with inflated view from XML can be used with this annotations
+##For Any class with inflated view from XML can be used as described below
 ##For example in a Fragment
 ```java
 
