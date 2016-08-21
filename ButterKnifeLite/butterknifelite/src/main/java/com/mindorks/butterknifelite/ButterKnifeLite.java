@@ -34,8 +34,8 @@ public class ButterKnifeLite {
      * @param target is the activity with annotation
      */
     public static void bind(final Activity target){
-        bindViews(target, target.getClass().getFields(), target.findViewById(android.R.id.content));
-        createOnClick(target, target.getClass().getMethods(), target.findViewById(android.R.id.content));
+        bindViews(target, target.getClass().getDeclaredFields(), target.findViewById(android.R.id.content));
+        createOnClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
         mObjectList.add(target);
     }
 
@@ -46,8 +46,8 @@ public class ButterKnifeLite {
      * @param promptsView is the inflated view from the XML
      */
     public static void bind(final Object obj, View promptsView){
-        bindViews(obj, obj.getClass().getFields(), promptsView);
-        createOnClick(obj, obj.getClass().getMethods(), promptsView);
+        bindViews(obj, obj.getClass().getDeclaredFields(), promptsView);
+        createOnClick(obj, obj.getClass().getDeclaredMethods(), promptsView);
         mObjectList.add(obj);
     }
 
@@ -69,6 +69,7 @@ public class ButterKnifeLite {
                     @Override
                     public void onClick(View v) {
                         try {
+                            method.setAccessible(true);
                             method.invoke(obj);
                         }catch (IllegalAccessException e){
                             e.printStackTrace();
@@ -97,6 +98,7 @@ public class ButterKnifeLite {
                 int id = bindView.value();
                 View view = rootView.findViewById(id);
                 try {
+                    field.setAccessible(true);
                     field.set(obj, view);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

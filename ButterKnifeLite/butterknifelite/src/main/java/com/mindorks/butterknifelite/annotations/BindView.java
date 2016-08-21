@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 /**
  * The annotation definition to get public fields from the class
  */
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface BindView {
     int value();

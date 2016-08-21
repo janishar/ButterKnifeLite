@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/janishar/ButterKnifeLite'
     gitUrl = 'https://github.com/janishar/ButterKnifeLite.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId = 'janishar.ali@gmail.com'
     developerName = 'Janishar Ali'

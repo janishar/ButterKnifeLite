@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 /**
  * The annotation definition to get public methods from the class
  */
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface OnClick {
     int value();

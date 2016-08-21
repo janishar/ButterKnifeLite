@@ -15,7 +15,7 @@ import com.mindorks.butterknifelite.annotations.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.txtView)
-    public TextView txtView;
+    private TextView txtView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn1)
-    public void onBtn1Click(){
+    private void onBtn1Click(){
         txtView.setText("Btn 1 click");
     }
 
     @OnClick(R.id.btn2)
-    public void onBtn2Click(){
+    private void onBtn2Click(){
         txtView.setText("Btn 2 click");
     }
 
