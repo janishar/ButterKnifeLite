@@ -81,6 +81,6 @@ protected void finalize() throws Throwable {
 
 #Gradle
 ```java
-  compile 'com.mindorks:butterknifelite:0.0.1'
+  compile 'com.mindorks:butterknifelite:0.0.2'
 ```
 
