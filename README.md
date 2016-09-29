@@ -80,7 +80,15 @@ protected void finalize() throws Throwable {
 ```
 
 #Gradle
-```java
+```groovy
   compile 'com.mindorks:butterknifelite:0.0.2'
 ```
 
+# Proguard Note:
+### If you are using proguard, then add this rule in proguard-project.txt
+```groovy
+  -keepattributes *Annotation*
+  -keepclassmembers class ** {
+    @com.mindorks.butterknifelite.annotations.** <methods>;
+  }
+```
