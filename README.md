@@ -1,7 +1,10 @@
 # ButterKnifeLite
+[ ![Download](https://api.bintray.com/packages/janishar/mindorks/butterknifelite/images/download.svg) ](https://bintray.com/janishar/mindorks/butterknifelite/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ButterKnifeLite-yellow.svg?style=flat)](http://android-arsenal.com/details/1/4417)
+
 ##Android View initializer and onClick Listener boiler plate code remover
 
-###This library is based on the ideas of ButterKnife but with use cases targeted for view binding of xml. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
+####This library is based on the ideas of ButterKnife but with use cases targeted for view binding of xml. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
 
 ##@BindView annotation to refer any view defined in XML (Note: Use public Keyword)
 ```java
