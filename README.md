@@ -87,6 +87,21 @@ protected void finalize() throws Throwable {
   compile 'com.mindorks:butterknifelite:0.0.2'
 ```
 
+# Recent Libraries: 
+#[`PlaceHolderView`](https://github.com/janishar/PlaceHolderView)
+#### `PlaceHolderView` helps create views without any adapter in a very modular form. It uses the power of RecyclerView and enhances it to another level. For the first time with the list view comes card stack view.
+
+#[`JPost`](https://https://github.com/janishar/JPost)
+#### JPost is a pubsub library based on massages over a channel. It's very efficient and much powerful than other pubsub libraries. It prevents memory leak and increases code control. Also, provide a mechanism to run code asynchronously.
+
+#### Why should you use `JPost` library
+1. In contrast to the existing pub-sub libraries, it hold the subscribers with weakreference. Thus it doesn't create memory leaks.
+2. Single message can be sent to selected subscribes. This avoids the problem of event getting received at undesirable places. Thus minimising the chances of abnormal application behaviour.
+3. The subscriber addition can be controlled by using private channels. It minimises the chances of adding subscribes by mistake to receive undesirable messages.
+4. It is a tiny library < 55kb . Thus not effecting the application overall size.
+5. It facilicates synchronous as well as asynchronous message delivery and processing.
+6. It provides a mechanism to run code asynchronously.
+
 # Proguard Note:
 ### If you are using proguard, then add this rule in proguard-project.txt
 ```groovy
