@@ -25,7 +25,7 @@ public void onBtn1Click(){
 
 ```
 
-##`@OnLongClick` annotation to set onClick method for any view defined in XML
+##`@OnLongClick` annotation to set OnLongClick method for any view defined in XML
 ```java
 
 @OnLongClick(R.id.btn2)
