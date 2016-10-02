@@ -2,11 +2,11 @@
 [ ![Download](https://api.bintray.com/packages/janishar/mindorks/butterknifelite/images/download.svg) ](https://bintray.com/janishar/mindorks/butterknifelite/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ButterKnifeLite-yellow.svg?style=flat)](http://android-arsenal.com/details/1/4417)
 
-##Android View initializer and onClick Listener boiler plate code remover
+##Android View initializer and Click Listener boiler plate code remover
 
-####This library is based on the ideas of ButterKnife but with use cases targeted for view binding of xml. Resulting is a tiny and compact library that don't hamper the existing project with lots of unused codes and consuming unneccessery build apk size
+####This library is based on the ideas of removing boilerplate code like ButterKnife but with use cases targeted for view binding of xml. Resulting is a vey tiny library.
 
-##@BindView annotation to refer any view defined in XML (Note: Use public Keyword)
+##`@BindView` annotation to refer any view defined in XML
 ```java
 
  @BindView(R.id.txtView)
@@ -15,12 +15,22 @@
  
 ```
 
-##@OnClick annotation to set onClick method for any view defined in XML
+##`@OnClick` annotation to set onClick method for any view defined in XML
 ```java
 
 @OnClick(R.id.btn1)
 public void onBtn1Click(){
     textView1.setText("Btn 1 click");
+}
+
+```
+
+##`@OnLongClick` annotation to set onClick method for any view defined in XML
+```java
+
+@OnLongClick(R.id.btn2)
+private void onBtn2LongClick(){
+    txtView.setText("Btn 2 long click");
 }
 
 ```
@@ -50,41 +60,14 @@ public class MyFragment extends Fragment {
     public void onBtn2Click(){
         txtView.setText("Btn 2 frag click");
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        ButterKnifeLite.unbind(this);
-    }
 }
 
 ```
-
-##Call  ButterKnifeLite.unbind(this) in the onDestroy() method
-```java
-
-@Override
-public void onDestroy() {
-    super.onDestroy();
-    ButterKnifeLite.unbind(this);
-}
-
-```
-
-## For other classes 
-```java
-
-@Override
-protected void finalize() throws Throwable {
-    super.finalize();
-    ButterKnifeLite.unbind(this);
-}
-
-```
+# Note: In version 0.0.1 and 0.0.2 we had to call ButterKnifeLite.unbind(obj) to remove the binded class. It is not required from version 0.0.3
 
 #Gradle
 ```groovy
-  compile 'com.mindorks:butterknifelite:0.0.2'
+  compile 'com.mindorks:butterknifelite:0.0.3'
 ```
 
 # Recent Libraries: 
