@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.mindorks.butterknifelite.ButterKnifeLite;
 import com.mindorks.butterknifelite.annotations.BindView;
 import com.mindorks.butterknifelite.annotations.OnClick;
+import com.mindorks.butterknifelite.annotations.OnLongClick;
 
 /**
  * Created by janisharali on 17/08/16.
@@ -37,9 +38,8 @@ public class MyFragment extends Fragment {
         txtView.setText("Btn 2 frag click");
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        ButterKnifeLite.unbind(this);
+    @OnLongClick(R.id.btn2)
+    private void onBtn2LongClick(){
+        txtView.setText("Btn 2 frag long click");
     }
 }

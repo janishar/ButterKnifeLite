@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import com.mindorks.butterknifelite.annotations.BindView;
 import com.mindorks.butterknifelite.annotations.OnClick;
+import com.mindorks.butterknifelite.annotations.OnLongClick;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -23,11 +25,6 @@ public class ButterKnifeLite {
 
     private static final String TAG = "ButterKnifeLite";
 
-    /**
-     * List of object to be used for extracting annotations and then dispose when unbinded
-     */
-    private static List<Object> mObjectList = new ArrayList<>();
-
 
     /**
      * annotations for activity class
@@ -36,7 +33,7 @@ public class ButterKnifeLite {
     public static void bind(final Activity target){
         bindViews(target, target.getClass().getDeclaredFields(), target.findViewById(android.R.id.content));
         createOnClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
-        mObjectList.add(target);
+        createOnLongClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
     }
 
 
@@ -48,7 +45,7 @@ public class ButterKnifeLite {
     public static void bind(final Object obj, View promptsView){
         bindViews(obj, obj.getClass().getDeclaredFields(), promptsView);
         createOnClick(obj, obj.getClass().getDeclaredMethods(), promptsView);
-        mObjectList.add(obj);
+        createOnLongClick(obj, obj.getClass().getDeclaredMethods(), promptsView);
     }
 
 
@@ -61,7 +58,7 @@ public class ButterKnifeLite {
     private static void createOnClick(final Object obj, Method[] methods, View rootView){
         for(final Method method : methods){
             Annotation annotation = method.getAnnotation(OnClick.class);
-            if(annotation instanceof OnClick){
+            if(annotation != null){
                 OnClick onClick = (OnClick) annotation;
                 int id = onClick.value();
                 View view =  rootView.findViewById(id);
@@ -83,6 +80,37 @@ public class ButterKnifeLite {
         }
     }
 
+    /**
+     * initiate the onLongclick listener for the annotated public methods
+     * @param obj is any class instance with annotations
+     * @param methods list of methods in the class with annotation
+     * @param rootView is the inflated view from the XML
+     */
+    private static void createOnLongClick(final Object obj, Method[] methods, View rootView){
+        for(final Method method : methods){
+            Annotation annotation = method.getAnnotation(OnLongClick.class);
+            if(annotation != null){
+                OnLongClick onLongClick = (OnLongClick) annotation;
+                int id = onLongClick.value();
+                View view =  rootView.findViewById(id);
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        try {
+                            method.setAccessible(true);
+                            method.invoke(obj);
+                        }catch (IllegalAccessException e){
+                            e.printStackTrace();
+                        }
+                        catch (InvocationTargetException e){
+                            e.printStackTrace();
+                        }
+                        return true;
+                    }
+                });
+            }
+        }
+    }
 
     /**
      * initiate the view for the annotated public fields
@@ -93,7 +121,7 @@ public class ButterKnifeLite {
     private static void bindViews(final Object obj, Field[] fields, View rootView){
         for(final Field field : fields) {
             Annotation annotation = field.getAnnotation(BindView.class);
-            if (annotation instanceof BindView) {
+            if (annotation != null) {
                 BindView bindView = (BindView) annotation;
                 int id = bindView.value();
                 View view = rootView.findViewById(id);
@@ -105,16 +133,5 @@ public class ButterKnifeLite {
                 }
             }
         }
-    }
-
-
-    /**
-     * detaches the view from the object list
-     * @param obj is any class instance with annotations, stored in the list
-     */
-    public static void unbind(Object obj){
-       if(mObjectList.contains(obj)){
-           mObjectList.remove(obj);
-       }
     }
 }
