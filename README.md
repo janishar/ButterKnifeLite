@@ -69,6 +69,14 @@ public class MyFragment extends Fragment {
 ```groovy
   compile 'com.mindorks:butterknifelite:0.0.3'
 ```
+# Proguard Note:
+### If you are using proguard, then add this rule in proguard-project.txt
+```groovy
+  -keepattributes *Annotation*
+  -keepclassmembers class ** {
+    @com.mindorks.butterknifelite.annotations.** <methods>;
+  }
+```
 
 # Recent Libraries: 
 #[`PlaceHolderView`](https://github.com/janishar/PlaceHolderView)
@@ -84,12 +92,3 @@ public class MyFragment extends Fragment {
 4. It is a tiny library < 55kb . Thus not effecting the application overall size.
 5. It facilicates synchronous as well as asynchronous message delivery and processing.
 6. It provides a mechanism to run code asynchronously.
-
-# Proguard Note:
-### If you are using proguard, then add this rule in proguard-project.txt
-```groovy
-  -keepattributes *Annotation*
-  -keepclassmembers class ** {
-    @com.mindorks.butterknifelite.annotations.** <methods>;
-  }
-```
