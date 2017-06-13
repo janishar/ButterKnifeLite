@@ -35,6 +35,32 @@ private void onBtn2LongClick(){
 
 ```
 
+##`@BindButtonSelector` annotation to refer button and its selector implementation
+```java
+
+ @BindButtonSelector(value = R.id.bind_selector_demo_btn, defaultBgResource = R.drawable.button_bg_normal,
+            selectedBgResource = R.drawable.button_bg_pressed, textStrNormal = "Normal", textStrSelected = "Selected",
+            textColorNormal = R.color.colorBtnTxtNormal, textColorSelected = R.color.colorBtnTxtPressed)
+ private Button selectorBindingDemoBtn;
+
+ 
+```
+
+##`@BindButtonSelector` annotation to set OnClick method for button with selector implementation
+```java
+
+   @BindButtonSelector(value = R.id.bind_selector_demo_btn, defaultBgResource = R.drawable.button_bg_normal,
+            selectedBgResource = R.drawable.button_bg_pressed, textStrNormal = "Normal", textStrSelected = "Selected",
+            textColorNormal = R.color.colorBtnTxtNormal, textColorSelected = R.color.colorBtnTxtPressed)
+   private void onSelectorBindingBtnClick(View iView){
+        String selected = "Button is " +(iView.isSelected() ? "Selected" : "Normal");
+        Toast.makeText(MainActivity.this, selected, Toast.LENGTH_SHORT).show();
+        // TODO any other implementation
+    }
+
+```
+
+
 ##For Any class with inflated view from XML can be used as described below
 ##For example in a Fragment
 ```java
