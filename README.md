@@ -83,7 +83,7 @@ public class MyFragment extends Fragment {
 #### `PlaceHolderView` helps create views without any adapter in a very modular form. It uses the power of RecyclerView and enhances it to another level. For the first time with the list view comes card stack view.
 
 #[`JPost`](https://github.com/janishar/JPost)
-#### JPost is a pubsub library based on massages over a channel. It's very efficient and much powerful than other pubsub libraries. It prevents memory leak and increases code control. Also, provide a mechanism to run code asynchronously.
+#### JPost is a pubsub library based on messages over a channel. It's very efficient and much powerful than other pubsub libraries. It prevents memory leak and increases code control. Also, provide a mechanism to run code asynchronously.
 
 #### Why should you use `JPost` library
 1. In contrast to the existing pub-sub libraries, it hold the subscribers with weakreference. Thus it doesn't create memory leaks.
