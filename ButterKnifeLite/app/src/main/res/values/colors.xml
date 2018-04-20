@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--Added for demo of new selector binding annotation on button-->
+    <color name="colorBtnBGNormal">#40ffbc</color>
+    <color name="colorBtnBGPressed">#206e4c</color>
+    <color name="colorBtnTxtNormal">#ed4330</color>
+    <color name="colorBtnTxtPressed">#ded949</color>
+
 </resources>

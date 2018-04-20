@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center">
+
+    <!--Added for demo of new selector binding annotation on button-->
+    <Button
+        android:id="@+id/bind_selector_demo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
     <TextView
         android:id="@+id/txtView"
         android:layout_width="wrap_content"
